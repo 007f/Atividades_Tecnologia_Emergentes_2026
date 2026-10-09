@@ -1,0 +1,1 @@
+# Atividades_Tecnologia_Emergentes_2026
