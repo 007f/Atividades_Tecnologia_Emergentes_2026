@@ -1,0 +1,268 @@
+Verificação dos critérios
+Saídas que comprovam os critérios 1, 2 e 3, incluindo o down e o up do critério 3.
+
+
+Subindo conteiner:
+
+PS C:\Users\Unicesumar\Downloads\FSM\turma-a> docker compose down
+[+] down 3/3
+ ✔ Container turma-a-portal-1 Removed                                                                                      0.5s ✔ Container turma-a-api-1    Removed                                                                                      1.2s ✔ Network turma-a_default    Removed                                                                                      0.2sPS C:\Users\Unicesumar\Downloads\FSM\turma-a> docker compose up  
+[+] up 3/3
+ ✔ Network turma-a_default    Created                                                                                      0.0s ✔ Container turma-a-api-1    Created                                                                                      0.1s ✔ Container turma-a-portal-1 Created                                                                                      0.1sAttaching to api-1, portal-1
+portal-1  | /docker-entrypoint.sh: /docker-entrypoint.d/ is not empty, will attempt to perform configuration
+portal-1  | /docker-entrypoint.sh: Looking for shell scripts in /docker-entrypoint.d/
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/10-listen-on-ipv6-by-default.sh
+portal-1  | 10-listen-on-ipv6-by-default.sh: info: Getting the checksum of /etc/nginx/conf.d/default.conf
+portal-1  | 10-listen-on-ipv6-by-default.sh: info: Enabled listen on IPv6 in /etc/nginx/conf.d/default.conf
+portal-1  | /docker-entrypoint.sh: Sourcing /docker-entrypoint.d/15-local-resolvers.envsh
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/20-envsubst-on-templates.sh
+portal-1  | 20-envsubst-on-templates.sh: Running envsubst on /etc/nginx/templates/default.conf.template to /etc/nginx/conf.d/default.conf
+portal-1  | /docker-entrypoint.sh: Launching /docker-entrypoint.d/30-tune-worker-processes.sh
+portal-1  | /docker-entrypoint.sh: Configuration complete; ready for start up
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: using the "epoll" event method
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: nginx/1.31.6
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: built by gcc 15.2.0 (Alpine 15.2.0) 
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: OS: Linux 6.6.87.2-microsoft-standard-WSL2
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: getrlimit(RLIMIT_NOFILE): 1048576:1048576
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker processes
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 36
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 37
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 38
+api-1     | {"evento":"inicio","porta":5000}
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 39
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 40
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 41
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 42
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 43
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 44
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 45
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 46
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 47
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 48
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 49
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 50
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 51
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 52
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 53
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 54
+portal-1  | 2026/10/09 01:00:50 [notice] 1#1: start worker process 55
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 3 (SIGQUIT) received, shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 36#36: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 37#37: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 40#40: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 38#38: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 39#39: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 42#42: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 41#41: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 40#40: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 37#37: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 38#38: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 36#36: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 43#43: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 39#39: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 42#42: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 44#44: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 46#46: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 43#43: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 41#41: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 49#49: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 44#44: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 46#46: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 49#49: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 51#51: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 45#45: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 51#51: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 45#45: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 54#54: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 54#54: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 55#55: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 55#55: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 42#42: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 40#40: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 39#39: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 49#49: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 38#38: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 41#41: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 36#36: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 46#46: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 44#44: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 51#51: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 45#45: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 55#55: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 54#54: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 47#47: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 48#48: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 47#47: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 48#48: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 50#50: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 50#50: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 47#47: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 48#48: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 43#43: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 52#52: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 37#37: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 52#52: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 52#52: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 53#53: gracefully shutting down
+portal-1  | 2026/10/09 01:02:53 [notice] 53#53: exiting
+portal-1  | 2026/10/09 01:02:53 [notice] 53#53: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 50#50: exit
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 36
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 36 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 38 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 42
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 37 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 42 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 46 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 46
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 51
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 43 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 49 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 51 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 55 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 48
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 47 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 45 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 48 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 45
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 53
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 39 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 41 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 52 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 53 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 44
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 40 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 44 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 50 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 29 (SIGIO) received
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: signal 17 (SIGCHLD) received from 54
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: worker process 54 exited with code 0
+portal-1  | 2026/10/09 01:02:53 [notice] 1#1: exit
+portal-1 exited with code 0
+api-1 exited with code 137
+PS C:\Users\Unicesumar\Downloads\FSM\turma-a> 
+
+Onde a API grava:
+
+PS C:\Users\Unicesumar\Downloads\FSM\turma-a> docker compose exec api sh -c "ls -la /app && echo '=== server.ts ===' && cat /app/server.ts"
+total 28
+drwxr-xr-x    1 root     root          4096 Oct  9 01:07 .
+drwxr-xr-x    1 root     root          4096 Oct  9 01:07 ..
+drwxrwxrwx    1 root     root          4096 Oct  8 14:04 dados
+-rwxr-xr-x    1 root     root            83 Oct  8 14:05 package.json
+drwxr-xr-x    1 root     root          4096 Oct  9 01:08 registros
+-rwxr-xr-x    1 root     root          4604 Oct  8 14:08 server.ts
+=== server.ts ===
+import { createServer, type IncomingMessage, type ServerResponse } from 'node:http'
+import { readFile, writeFile } from 'node:fs/promises'
+import { join } from 'node:path'
+
+type Evento = { id: number, nome: string, vagas: number }
+type Inscricao = { eventoId: number, nome: string, criadaEm: string }
+type ObjetoJson = Record<string, unknown>
+
+const turma: string = 'A'
+const porta: number = Number(process.env.PORT ?? '4000')
+const catalogo: string = join(process.cwd(), 'dados', 'eventos.json')
+const registros: string = join(process.cwd(), 'registros', 'inscricoes.json')
+
+const ehEvento = (valor: unknown): valor is Evento => {
+  if (typeof valor !== 'object' || valor === null) return false
+  const item: ObjetoJson = valor as ObjetoJson
+  return typeof item.id === 'number' && typeof item.nome === 'string'
+    && typeof item.vagas === 'number'
+}
+
+const responder = (resposta: ServerResponse, codigo: number, corpo: unknown): void => {
+  resposta.writeHead(codigo, { 'Content-Type': 'application/json; charset=utf-8' })
+  resposta.end(JSON.stringify(corpo, null, 2))
+}
+
+const lerEventos = async (): Promise<Evento[]> => {
+  const dados: unknown = JSON.parse(await readFile(catalogo, 'utf8'))
+  if (!Array.isArray(dados) || !dados.every(ehEvento)) {
+    throw new Error('Formato do catalogo invalido')
+  }
+  return dados
+}
+
+const lerInscricoes = async (): Promise<Inscricao[]> => {
+  try {
+    return JSON.parse(await readFile(registros, 'utf8')) as Inscricao[]
+  } catch (erro: unknown) {
+    if ((erro as { code?: string }).code === 'ENOENT') return []
+    throw erro
+  }
+}
+
+const lerCorpo = async (pedido: IncomingMessage): Promise<ObjetoJson> => {
+  const partes: Buffer[] = []
+  for await (const parte of pedido) partes.push(parte as Buffer)
+  const corpo: unknown = JSON.parse(Buffer.concat(partes).toString('utf8') || '{}')
+  return typeof corpo === 'object' && corpo !== null ? corpo as ObjetoJson : {}
+}
+
+const listarEventos = async (resposta: ServerResponse): Promise<void> => {
+  const eventos: Evento[] = await lerEventos()
+  const inscricoes: Inscricao[] = await lerInscricoes()
+  const itens = eventos.map((evento: Evento) => {
+    const inscritos: number = inscricoes.filter((i: Inscricao) => i.eventoId === evento.id).length
+    return { ...evento, inscritos, restantes: evento.vagas - inscritos }
+  })
+  responder(resposta, 200, { turma, total: itens.length, itens })
+}
+
+const inscrever = async (pedido: IncomingMessage, resposta: ServerResponse): Promise<void> => {
+  const corpo: ObjetoJson = await lerCorpo(pedido)
+  const eventoId: number = Number(corpo.eventoId)
+  const nome: string = String(corpo.nome ?? '').trim()
+  const evento: Evento | undefined = (await lerEventos()).find((e: Evento) => e.id === eventoId)
+  if (evento === undefined || nome === '') {
+    responder(resposta, 400, { erro: 'Informe eventoId existente e nome' })
+    return
+  }
+  const inscricoes: Inscricao[] = await lerInscricoes()
+  if (inscricoes.filter((i: Inscricao) => i.eventoId === eventoId).length >= evento.vagas) {
+    responder(resposta, 409, { erro: 'Evento sem vagas' })
+    return
+  }
+  const nova: Inscricao = { eventoId, nome, criadaEm: new Date().toISOString() }
+  await writeFile(registros, JSON.stringify([...inscricoes, nova], null, 2))
+  responder(resposta, 201, nova)
+}
+
+const atender = async (pedido: IncomingMessage, resposta: ServerResponse): Promise<void> => {
+  const caminho: string = new URL(pedido.url ?? '/', 'http://localhost').pathname
+  console.log(JSON.stringify({ evento: 'requisicao', metodo: pedido.method, caminho }))
+  try {
+    if (pedido.method === 'GET' && caminho === '/saude') {
+      responder(resposta, 200, { status: 'ok', turma })
+    } else if (pedido.method === 'GET' && caminho === '/eventos') {
+      await listarEventos(resposta)
+    } else if (pedido.method === 'GET' && caminho === '/inscricoes') {
+      responder(resposta, 200, await lerInscricoes())
+    } else if (pedido.method === 'POST' && caminho === '/inscricoes') {
+      await inscrever(pedido, resposta)
+    } else {
+      responder(resposta, 404, { erro: 'Rota inexistente' })
+    }
+  } catch (erro: unknown) {
+    const mensagem: string = erro instanceof Error ? erro.message : String(erro)
+    console.error(JSON.stringify({ evento: 'falha', caminho, mensagem }))
+    responder(resposta, 500, { erro: 'Falha interna. Consulte os logs da API.' })
+  }
+}
+
+const servidor = createServer((pedido: IncomingMessage, resposta: ServerResponse): void => {
+  void atender(pedido, resposta)
+})
+
+servidor.listen(porta, (): void => {
+  console.log(JSON.stringify({ evento: 'inicio', porta }))
+})
+PS C:\Users\Unicesumar\Downloads\FSM\turma-a> 
