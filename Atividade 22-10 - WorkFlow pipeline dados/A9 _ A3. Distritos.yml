@@ -1,0 +1,571 @@
+app:
+  description: A9 - cenario A3 (Distritos) - RA 23167656-2
+  icon: 🗺
+  icon_background: '#E4FBCC'
+  icon_type: emoji
+  mode: workflow
+  name: A9 | A3. Distritos
+  use_icon_as_answer_icon: false
+dependencies:
+- current_identifier: null
+  type: marketplace
+  value:
+    marketplace_plugin_unique_identifier: langgenius/openai:1.0.7@f36c3761167b3af0bfb4975b728fe3cd126342d076e1ec5359e6d4f92557d3d4
+    version: null
+kind: app
+version: 0.7.0
+workflow:
+  conversation_variables: []
+  environment_variables: []
+  features:
+    file_upload:
+      allowed_file_extensions:
+      - .JPG
+      - .JPEG
+      - .PNG
+      - .GIF
+      - .WEBP
+      - .SVG
+      allowed_file_types:
+      - image
+      allowed_file_upload_methods:
+      - local_file
+      - remote_url
+      enabled: false
+      fileUploadConfig:
+        attachment_image_file_size_limit: 2
+        audio_file_size_limit: 50
+        batch_count_limit: 5
+        file_size_limit: 15
+        file_upload_limit: 50
+        image_file_batch_limit: 10
+        image_file_size_limit: 10
+        knowledge_file_size_limit: 15
+        single_chunk_attachment_limit: 10
+        skill_file_size_limit: 50
+        video_file_size_limit: 100
+        workflow_file_upload_limit: 10
+      image:
+        enabled: false
+        number_limits: 3
+        transfer_methods:
+        - local_file
+        - remote_url
+      number_limits: 3
+    opening_statement: ''
+    retriever_resource:
+      enabled: false
+    sensitive_word_avoidance:
+      enabled: false
+    speech_to_text:
+      enabled: false
+    suggested_questions: []
+    suggested_questions_after_answer:
+      enabled: false
+    text_to_speech:
+      enabled: false
+      language: ''
+      voice: ''
+  graph:
+    edges:
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: start
+        targetType: http-request
+      id: e1
+      source: start
+      sourceHandle: source
+      target: http_sidra
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: http-request
+        targetType: code
+      id: e2
+      source: http_sidra
+      sourceHandle: source
+      target: code_valida
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: e3
+      source: code_valida
+      sourceHandle: source
+      target: if_valido
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: code
+      id: e4
+      source: if_valido
+      sourceHandle: 'true'
+      target: code_prepara
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: e5
+      source: if_valido
+      sourceHandle: 'false'
+      target: end_erro
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: llm
+      id: e6
+      source: code_prepara
+      sourceHandle: source
+      target: llm_resumo
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: llm
+        targetType: code
+      id: e7
+      source: llm_resumo
+      sourceHandle: source
+      target: code_confere
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: code
+        targetType: if-else
+      id: e8
+      source: code_confere
+      sourceHandle: source
+      target: if_resumo
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: e9
+      source: if_resumo
+      sourceHandle: 'true'
+      target: end_ok
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    - data:
+        isInIteration: false
+        isInLoop: false
+        sourceType: if-else
+        targetType: end
+      id: e10
+      source: if_resumo
+      sourceHandle: 'false'
+      target: end_reprovado
+      targetHandle: target
+      type: custom
+      zIndex: 0
+    nodes:
+    - data:
+        desc: ''
+        selected: false
+        title: Start
+        type: start
+        variables:
+        - label: codigo_ibge
+          max_length: 48
+          options: []
+          required: true
+          type: text-input
+          variable: codigo_ibge
+      height: 109
+      id: start
+      position:
+        x: 30
+        y: 300
+      positionAbsolute:
+        x: 30
+        y: 300
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        authorization:
+          config: null
+          type: no-auth
+        body:
+          data:
+          - type: text
+            value: ''
+          type: none
+        desc: ''
+        headers: ''
+        method: get
+        params: ''
+        retry_config:
+          max_retries: 3
+          retry_enabled: true
+          retry_interval: 100
+        selected: false
+        ssl_verify: true
+        timeout:
+          max_connect_timeout: 0
+          max_read_timeout: 0
+          max_write_timeout: 0
+        title: Consulta SIDRA
+        type: http-request
+        url: https://apisidra.ibge.gov.br/values/t/9923/n10/in%20n6%20{{#start.codigo_ibge#}}/v/93/p/2022/c1/6795
+        variables: []
+      height: 188
+      id: http_sidra
+      position:
+        x: 320
+        y: 300
+      positionAbsolute:
+        x: 320
+        y: 300
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "function main({ codigo_ibge, status_code, body }) {\n  const base =\
+          \ {\n    fonte: \"IBGE SIDRA, Censo 2022, tabela 9923, distritos\",\n  \
+          \  codigo_ibge: codigo_ibge,\n  }\n  if (status_code !== 200) {\n    return\
+          \ {\n      ok: 0,\n      contrato: {\n        ok: false,\n        ...base,\n\
+          \        status_http: status_code,\n        erro: \"Consulta HTTP sem sucesso\"\
+          ,\n      },\n    }\n  }\n  const linhas = JSON.parse(body).slice(1)\n  const\
+          \ distritos = linhas.map((l) => l.D1N.split(\" - \")[0]).sort()\n  return\
+          \ {\n    ok: 1,\n    contrato: {\n      ok: true,\n      ...base,\n    \
+          \  dados: {\n        quantidade_distritos: linhas.length,\n        distritos:\
+          \ distritos,\n      },\n    },\n  }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          contrato:
+            children: null
+            type: object
+          ok:
+            children: null
+            type: number
+        selected: false
+        title: Validar e montar contrato
+        type: code
+        variables:
+        - value_selector:
+          - start
+          - codigo_ibge
+          variable: codigo_ibge
+        - value_selector:
+          - http_sidra
+          - status_code
+          variable: status_code
+        - value_selector:
+          - http_sidra
+          - body
+          variable: body
+      height: 52
+      id: code_valida
+      position:
+        x: 610
+        y: 300
+      positionAbsolute:
+        x: 610
+        y: 300
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: c-ok
+            value: '1'
+            variable_selector:
+            - code_valida
+            - ok
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: Contrato válido?
+        type: if-else
+      height: 124
+      id: if_valido
+      position:
+        x: 902
+        y: 300
+      positionAbsolute:
+        x: 902
+        y: 300
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "function main({ contrato }) {\n  return { contrato_texto: JSON.stringify(contrato)\
+          \ }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          contrato_texto:
+            children: null
+            type: string
+        selected: false
+        title: Preparar contrato para o resumo
+        type: code
+        variables:
+        - value_selector:
+          - code_valida
+          - contrato
+          variable: contrato
+      height: 52
+      id: code_prepara
+      position:
+        x: 1190
+        y: 180
+      positionAbsolute:
+        x: 1190
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        context:
+          enabled: false
+          variable_selector: []
+        desc: ''
+        model:
+          completion_params:
+            temperature: 0.7
+          mode: chat
+          name: gpt-4o-mini
+          provider: langgenius/openai/openai
+        prompt_template:
+        - id: sys
+          role: system
+          text: 'Você escreve para moradores do município. Escreva até três frases
+            em português com os valores do contrato JSON recebido. Use os números
+            como aparecem no contrato, sem arredondar e sem converter unidades. Não
+            acrescente informações que não estejam no contrato.
+
+            '
+        - id: usr
+          role: user
+          text: '{{#code_prepara.contrato_texto#}}'
+        retry_config:
+          max_retries: 2
+          retry_enabled: true
+        selected: false
+        title: Escrever resumo
+        type: llm
+        variables: []
+        vision:
+          enabled: false
+      height: 134
+      id: llm_resumo
+      position:
+        x: 1480
+        y: 180
+      positionAbsolute:
+        x: 1480
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        code: "function main({ contrato, texto }) {\n  const leituras = (t) => {\n\
+          \    const semPonto = t.replace(/\\./g, \"\")\n    if (t.includes(\",\"\
+          )) return [Number(semPonto.replace(\",\", \".\"))]\n    return [Number(t),\
+          \ Number(semPonto)]\n  }\n  const doContrato = (JSON.stringify(contrato).match(/\\\
+          d+(\\.\\d+)?/g) || []).map(Number)\n  const doTexto = texto.match(/\\d+(?:[.,]\\\
+          d+)*/g) || []\n  const sem_origem = doTexto.filter((t) => !leituras(t).some((n)\
+          \ => doContrato.includes(n)))\n  if (sem_origem.length > 0) {\n    return\
+          \ { ok: 0, reprovado: { motivo: \"Números do texto sem origem no contrato\"\
+          , sem_origem, texto } }\n  }\n  return { ok: 1, reprovado: {} }\n}\n"
+        code_language: javascript
+        desc: ''
+        outputs:
+          ok:
+            children: null
+            type: number
+          reprovado:
+            children: null
+            type: object
+        selected: true
+        title: Conferir resumo
+        type: code
+        variables:
+        - value_selector:
+          - code_valida
+          - contrato
+          variable: contrato
+        - value_selector:
+          - llm_resumo
+          - text
+          variable: texto
+      height: 52
+      id: code_confere
+      position:
+        x: 1770
+        y: 180
+      positionAbsolute:
+        x: 1770
+        y: 180
+      selected: true
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        cases:
+        - case_id: 'true'
+          conditions:
+          - comparison_operator: '='
+            id: c-ok2
+            value: '1'
+            variable_selector:
+            - code_confere
+            - ok
+          id: 'true'
+          logical_operator: and
+        desc: ''
+        selected: false
+        title: Resumo aprovado?
+        type: if-else
+      height: 124
+      id: if_resumo
+      position:
+        x: 2060
+        y: 180
+      positionAbsolute:
+        x: 2060
+        y: 180
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - code_valida
+          - contrato
+          variable: erro
+        selected: false
+        title: Saída erro
+        type: end
+      height: 88
+      id: end_erro
+      position:
+        x: 1190
+        y: 430
+      positionAbsolute:
+        x: 1190
+        y: 430
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - code_valida
+          - contrato
+          variable: contrato
+        - value_selector:
+          - llm_resumo
+          - text
+          variable: texto
+        selected: false
+        title: Saída aprovada
+        type: end
+      height: 114
+      id: end_ok
+      position:
+        x: 2350
+        y: 60
+      positionAbsolute:
+        x: 2350
+        y: 60
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    - data:
+        desc: ''
+        outputs:
+        - value_selector:
+          - code_confere
+          - reprovado
+          variable: reprovado
+        selected: false
+        title: Saída reprovada
+        type: end
+      height: 88
+      id: end_reprovado
+      position:
+        x: 2350
+        y: 300
+      positionAbsolute:
+        x: 2350
+        y: 300
+      selected: false
+      sourcePosition: right
+      targetPosition: left
+      type: custom
+      width: 242
+      zIndex: 0
+    viewport:
+      x: -539.4999999999995
+      y: 185.50000000000006
+      zoom: 0.49999999999999983
+  rag_pipeline_variables: []
