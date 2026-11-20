@@ -1,0 +1,220 @@
+{
+  "agente": "tester",
+  "casos": [
+    {
+      "nome": "consultar_emprestimo caminho feliz com id valido",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": 101
+      },
+      "espera": "aceita"
+    },
+    {
+      "nome": "consultar_emprestimo com id no limite maximo da faixa existente",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": 105
+      },
+      "espera": "aceita"
+    },
+    {
+      "nome": "consultar_emprestimo com id 0 abaixo do limite minimo",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": 0
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com id negativo",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": -1
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com id fracionado",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": 101.5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com id do tipo string",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": "101"
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com id do tipo boolean",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": true
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo sem campo id obrigatorio",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {},
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com argumentos vazios",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {},
+      "espera": "recusa"
+    },
+    {
+      "nome": "consultar_emprestimo com dois erros: id negativo e fracionado",
+      "ferramenta": "consultar_emprestimo",
+      "argumentos": {
+        "id": -1.5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo caminho feliz com id e dias validos",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102,
+        "dias": 5
+      },
+      "espera": "aceita"
+    },
+    {
+      "nome": "renovar_emprestimo com dias no limite minimo valido",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 101,
+        "dias": 1
+      },
+      "espera": "aceita"
+    },
+    {
+      "nome": "renovar_emprestimo com dias 0 abaixo do limite minimo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 101,
+        "dias": 0
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com dias no limite maximo valido",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 103,
+        "dias": 10
+      },
+      "espera": "aceita"
+    },
+    {
+      "nome": "renovar_emprestimo com dias 11 acima do limite maximo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 103,
+        "dias": 11
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com id 0 abaixo do limite minimo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 0,
+        "dias": 5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com id negativo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": -1,
+        "dias": 5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com dias negativo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102,
+        "dias": -1
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com id fracionado",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102.5,
+        "dias": 5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com dias fracionado",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102,
+        "dias": 2.5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com id do tipo string",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": "102",
+        "dias": 5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com dias do tipo string",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102,
+        "dias": "5"
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo sem id obrigatorio",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "dias": 5
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo sem dias obrigatorio",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 102
+      },
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com argumentos vazios",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {},
+      "espera": "recusa"
+    },
+    {
+      "nome": "renovar_emprestimo com dois erros: id 0 e dias acima do maximo",
+      "ferramenta": "renovar_emprestimo",
+      "argumentos": {
+        "id": 0,
+        "dias": 15
+      },
+      "espera": "recusa"
+    }
+  ]
+}

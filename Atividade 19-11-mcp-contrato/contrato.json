@@ -1,0 +1,45 @@
+{
+    "ferramentas": [
+      {
+        "name": "consultar_emprestimo",
+        "description": "Devolve os dados de um registro de empréstimo. Somente leitura: não altera nada.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Identificador do registro de empréstimo."
+            }
+          },
+          "required": [
+            "id"
+          ]
+        }
+      },
+      {
+        "name": "renovar_emprestimo",
+        "description": "Soma `dias` ao total do registro de empréstimo. Altera o registro.",
+        "inputSchema": {
+          "type": "object",
+          "properties": {
+            "id": {
+              "type": "integer",
+              "minimum": 1,
+              "description": "Identificador do registro de empréstimo."
+            },
+            "dias": {
+              "type": "integer",
+              "minimum": 1,
+              "maximum": 10,
+              "description": "Quantidade de dias a somar ao total do registro."
+            }
+          },
+          "required": [
+            "id",
+            "dias"
+          ]
+        }
+      }
+    ]
+  }

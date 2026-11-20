@@ -1,0 +1,597 @@
+{
+  "atividade": "A12",
+  "ra": "23167656-2",
+  "dominio": "D1",
+  "limite": 10,
+  "geradaEm": "2026-11-20T01:26:53.049Z",
+  "casosHash": "b5d84219450b",
+  "casosArquivo": {
+    "agente": "tester",
+    "casos": [
+      {
+        "nome": "consultar_emprestimo caminho feliz com id valido",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 101
+        },
+        "espera": "aceita"
+      },
+      {
+        "nome": "consultar_emprestimo com id no limite maximo da faixa existente",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 105
+        },
+        "espera": "aceita"
+      },
+      {
+        "nome": "consultar_emprestimo com id 0 abaixo do limite minimo",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 0
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com id negativo",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": -1
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com id fracionado",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 101.5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com id do tipo string",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": "101"
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com id do tipo boolean",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": true
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo sem campo id obrigatorio",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com argumentos vazios",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa"
+      },
+      {
+        "nome": "consultar_emprestimo com dois erros: id negativo e fracionado",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": -1.5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo caminho feliz com id e dias validos",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": 5
+        },
+        "espera": "aceita"
+      },
+      {
+        "nome": "renovar_emprestimo com dias no limite minimo valido",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 101,
+          "dias": 1
+        },
+        "espera": "aceita"
+      },
+      {
+        "nome": "renovar_emprestimo com dias 0 abaixo do limite minimo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 101,
+          "dias": 0
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com dias no limite maximo valido",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 103,
+          "dias": 10
+        },
+        "espera": "aceita"
+      },
+      {
+        "nome": "renovar_emprestimo com dias 11 acima do limite maximo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 103,
+          "dias": 11
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com id 0 abaixo do limite minimo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 0,
+          "dias": 5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com id negativo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": -1,
+          "dias": 5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com dias negativo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": -1
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com id fracionado",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102.5,
+          "dias": 5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com dias fracionado",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": 2.5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com id do tipo string",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": "102",
+          "dias": 5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com dias do tipo string",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": "5"
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo sem id obrigatorio",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "dias": 5
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo sem dias obrigatorio",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102
+        },
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com argumentos vazios",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa"
+      },
+      {
+        "nome": "renovar_emprestimo com dois erros: id 0 e dias acima do maximo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 0,
+          "dias": 15
+        },
+        "espera": "recusa"
+      }
+    ]
+  },
+  "resultado": {
+    "total": 26,
+    "casos": [
+      {
+        "caso": "t1",
+        "nome": "consultar_emprestimo caminho feliz com id valido",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 101
+        },
+        "espera": "aceita",
+        "obtido": "aceita",
+        "resposta": "{\"id\":101,\"nome\":\"Dom Casmurro\",\"total\":0}"
+      },
+      {
+        "caso": "t2",
+        "nome": "consultar_emprestimo com id no limite maximo da faixa existente",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 105
+        },
+        "espera": "aceita",
+        "obtido": "aceita",
+        "resposta": "{\"id\":105,\"nome\":\"O Cortiço\",\"total\":0}"
+      },
+      {
+        "caso": "t3",
+        "nome": "consultar_emprestimo com id 0 abaixo do limite minimo",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 0
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t4",
+        "nome": "consultar_emprestimo com id negativo",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": -1
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t5",
+        "nome": "consultar_emprestimo com id fracionado",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": 101.5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer."
+      },
+      {
+        "caso": "t6",
+        "nome": "consultar_emprestimo com id do tipo string",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": "101"
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer."
+      },
+      {
+        "caso": "t7",
+        "nome": "consultar_emprestimo com id do tipo boolean",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": true
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer."
+      },
+      {
+        "caso": "t8",
+        "nome": "consultar_emprestimo sem campo id obrigatorio",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id é obrigatório."
+      },
+      {
+        "caso": "t9",
+        "nome": "consultar_emprestimo com argumentos vazios",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id é obrigatório."
+      },
+      {
+        "caso": "t10",
+        "nome": "consultar_emprestimo com dois erros: id negativo e fracionado",
+        "ferramenta": "consultar_emprestimo",
+        "argumentos": {
+          "id": -1.5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer; id precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t11",
+        "nome": "renovar_emprestimo caminho feliz com id e dias validos",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": 5
+        },
+        "espera": "aceita",
+        "obtido": "aceita",
+        "resposta": "{\"id\":102,\"nome\":\"Vidas Secas\",\"total\":5}"
+      },
+      {
+        "caso": "t12",
+        "nome": "renovar_emprestimo com dias no limite minimo valido",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 101,
+          "dias": 1
+        },
+        "espera": "aceita",
+        "obtido": "aceita",
+        "resposta": "{\"id\":101,\"nome\":\"Dom Casmurro\",\"total\":1}"
+      },
+      {
+        "caso": "t13",
+        "nome": "renovar_emprestimo com dias 0 abaixo do limite minimo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 101,
+          "dias": 0
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t14",
+        "nome": "renovar_emprestimo com dias no limite maximo valido",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 103,
+          "dias": 10
+        },
+        "espera": "aceita",
+        "obtido": "aceita",
+        "resposta": "{\"id\":103,\"nome\":\"Capitães da Areia\",\"total\":10}"
+      },
+      {
+        "caso": "t15",
+        "nome": "renovar_emprestimo com dias 11 acima do limite maximo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 103,
+          "dias": 11
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias precisa ser no máximo 10."
+      },
+      {
+        "caso": "t16",
+        "nome": "renovar_emprestimo com id 0 abaixo do limite minimo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 0,
+          "dias": 5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t17",
+        "nome": "renovar_emprestimo com id negativo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": -1,
+          "dias": 5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t18",
+        "nome": "renovar_emprestimo com dias negativo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": -1
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias precisa ser no mínimo 1."
+      },
+      {
+        "caso": "t19",
+        "nome": "renovar_emprestimo com id fracionado",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102.5,
+          "dias": 5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer."
+      },
+      {
+        "caso": "t20",
+        "nome": "renovar_emprestimo com dias fracionado",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": 2.5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias precisa ser integer."
+      },
+      {
+        "caso": "t21",
+        "nome": "renovar_emprestimo com id do tipo string",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": "102",
+          "dias": 5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser integer."
+      },
+      {
+        "caso": "t22",
+        "nome": "renovar_emprestimo com dias do tipo string",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102,
+          "dias": "5"
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias precisa ser integer."
+      },
+      {
+        "caso": "t23",
+        "nome": "renovar_emprestimo sem id obrigatorio",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "dias": 5
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id é obrigatório."
+      },
+      {
+        "caso": "t24",
+        "nome": "renovar_emprestimo sem dias obrigatorio",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 102
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: dias é obrigatório."
+      },
+      {
+        "caso": "t25",
+        "nome": "renovar_emprestimo com argumentos vazios",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {},
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id é obrigatório; dias é obrigatório."
+      },
+      {
+        "caso": "t26",
+        "nome": "renovar_emprestimo com dois erros: id 0 e dias acima do maximo",
+        "ferramenta": "renovar_emprestimo",
+        "argumentos": {
+          "id": 0,
+          "dias": 15
+        },
+        "espera": "recusa",
+        "obtido": "recusa",
+        "resposta": "Argumentos inválidos: id precisa ser no mínimo 1; dias precisa ser no máximo 10."
+      }
+    ],
+    "errados": 0,
+    "foraDoContrato": 0,
+    "defeitos": [
+      {
+        "id": "d1",
+        "nome": "consultar_emprestimo sem id obrigatório",
+        "detectado": true,
+        "caso": "t8 consultar_emprestimo sem campo id obrigatorio"
+      },
+      {
+        "id": "d2",
+        "nome": "consultar_emprestimo aceita id fracionado",
+        "detectado": true,
+        "caso": "t5 consultar_emprestimo com id fracionado"
+      },
+      {
+        "id": "d3",
+        "nome": "consultar_emprestimo sem mínimo no id",
+        "detectado": true,
+        "caso": "t3 consultar_emprestimo com id 0 abaixo do limite minimo"
+      },
+      {
+        "id": "d4",
+        "nome": "renovar_emprestimo sem dias obrigatório",
+        "detectado": true,
+        "caso": "t24 renovar_emprestimo sem dias obrigatorio"
+      },
+      {
+        "id": "d5",
+        "nome": "renovar_emprestimo aceita dias fracionado",
+        "detectado": true,
+        "caso": "t20 renovar_emprestimo com dias fracionado"
+      },
+      {
+        "id": "d6",
+        "nome": "renovar_emprestimo sem mínimo em dias",
+        "detectado": true,
+        "caso": "t13 renovar_emprestimo com dias 0 abaixo do limite minimo"
+      },
+      {
+        "id": "d7",
+        "nome": "renovar_emprestimo com máximo 11",
+        "detectado": true,
+        "caso": "t15 renovar_emprestimo com dias 11 acima do limite maximo"
+      },
+      {
+        "id": "d8",
+        "nome": "renovar_emprestimo com máximo 9",
+        "detectado": true,
+        "caso": "t14 renovar_emprestimo com dias no limite maximo valido"
+      }
+    ],
+    "detectados": 8,
+    "contratoPasta": {
+      "falhas": []
+    }
+  },
+  "agentes": [
+    {
+      "arquivo": ".agents/agents/coder.md",
+      "texto": "---\r\nname: coder\r\ndescription: Implementa ordenarPorPrioridade a partir de saida/spec.md sem dúvidas em aberto.\r\ntools:\r\n  - view_file\r\n  - write_to_file\r\n  - replace_file_content\r\nsubagent: true\r\nmainAgent: false\r\n---\r\n\r\nLeia saida/spec.md e pedido.md. Grave saida/ordenarPorPrioridade.ts exportando a função\r\nordenarPorPrioridade e o tipo Tarefa. Funções puras, sem classes, sem imports, sem ponto e vírgula\r\ne sem alterar a entrada. Mensagens de erro exatamente como na especificação.\r\nQuando receber falhas de testes, corrija o comportamento de cada uma."
+    },
+    {
+      "arquivo": ".agents/agents/spec.md",
+      "texto": "---\r\nname: spec\r\ndescription: Escreve a especificação com critérios e dúvidas. Use antes de qualquer implementação.\r\ntools:\r\n  - view_file\r\n  - write_to_file\r\nsubagent: true\r\nmainAgent: false\r\n---\r\n\r\nLeia pedido.md e respostas.md. Grave saida/spec.md com as seções Critérios (C01, C02...) e Dúvidas.\r\nUse as respostas nos critérios e copie as mensagens de erro exatamente. Sem dúvidas, escreva Nenhuma.\r\nNão escolha respostas nem escreva código."
+    },
+    {
+      "arquivo": ".agents/agents/tester.md",
+      "texto": "---\r\nname: tester\r\ndescription: Escreve casos.json de teste para o contrato MCP a partir de pedido.md e do contrato.json. Use ao criar ou ampliar a cobertura de casos; não executa o servidor.\r\ntools:\r\n  - view_file\r\n  - write_to_file\r\nsubagent: true\r\nmainAgent: false\r\n---\r\n\r\nLeia pedido.md e contrato.json. Grave casos.json na raiz do projeto.\r\n\r\nFormato exato: objeto com \"agente\": \"tester\" e a lista \"casos\". Cada caso tem \"nome\",\r\n\"ferramenta\", \"argumentos\" (objeto com os argumentos da chamada) e \"espera\", que vale\r\n\"aceita\" ou \"recusa\".\r\n\r\nRegras:\r\n\r\n- Cada caso nasce de uma regra escrita em pedido.md e da restrição correspondente no\r\n  inputSchema de contrato.json. O \"nome\" diz qual regra o caso ataca.\r\n- \"espera\" é decidido só pelo inputSchema: \"aceita\" quando o schema aceita, \"recusa\"\r\n  quando o schema rejeita. Nunca decida pelo que o servidor responderia.\r\n- Não execute o servidor e não rode testar.mjs: você não tem ferramenta de terminal.\r\n- Não edite contrato.json.\r\n- Não copie valores literais de pedido.md. Leia os limites do inputSchema e calcule os\r\n  vizinhos de cada limite.\r\n- Em caso \"aceita\", use identificadores de registro que existam em pedido.md, para o\r\n  servidor não responder outra coisa que não o sucesso.\r\n\r\nCobertura mínima, para cada ferramenta, em cada parâmetro com mínimo e com máximo:\r\n\r\n- limite mínimo válido e um valor abaixo dele\r\n- limite máximo válido e um valor acima dele\r\n- tipo errado\r\n- valor não inteiro, já que o tipo é integer\r\n- valor negativo quando o mínimo for positivo\r\n\r\nAlém disso:\r\n\r\n- caminho feliz completo, com todos os obrigatórios presentes\r\n- cada campo obrigatório ausente, um caso por campo\r\n- objeto de argumentos vazio\r\n- campo extra apenas se o pedido restringir campos extras\r\n- dois erros no mesmo caso\r\n- ferramenta inexistente\r\n\r\nGrave casos.json e pare. Sem comentário nem texto fora do JSON."
+    }
+  ],
+  "analise": "# Análise A12 — RA 23167656-2\n\nDefeito sorteado: d4 — renovar_emprestimo sem dias obrigatório.\n\n## 1. Valores que separam o contrato correto do contrato com o máximo errado por uma unidade\n\nParâmetro `dias`, máximo 10, limite do RA.\n\n- 11: o contrato correto recusa e o contrato com máximo 11 aceita. Separa o erro para mais.\n- 10: o contrato correto aceita e o contrato com máximo 9 recusa. Separa o erro para menos.\n\nUm valor no meio da faixa, como 5, é aceito pelos três contratos e não separa nada.\n\n## 2. Par que detecta d4 e par que não detecta\n\nd4 remove apenas a obrigatoriedade de `dias`. Tipo, mínimo e máximo continuam iguais.\n\n- Detecta: `dias` ausente com `id` válido, id 102 sem `dias`. No contrato correto é recusa; em d4 é aceita.\n- Não detecta: `dias` com valor válido, id 102 e dias 5, aceito nos dois. Os casos de `dias` fora da faixa, como 0, 11 e 2.5, também não detectam, porque dependem de mínimo, máximo e tipo, que d4 não altera.\n\n## 3. Caso\n\n`renovar_emprestimo` com `{\"id\": 102}` e sem `dias`, espera recusa. É o caso t24."
+}
